@@ -1,0 +1,193 @@
+body{background:#000;}
+.h100vh{height: 100vh;}
+.bg-black{background: #000;}
+
+/************ font-size****************/
+.ft-140{font-size: 140px;}
+.ft-55{font-size: 55px;}
+.ft-45{font-size: 45px;}
+.ft-36{font-size:36px;}
+.ft-34{font-size:34px;}
+.ft-32{font-size:32px;}
+.ft-30{font-size:30px;}
+.ft-28{font-size:28px;}
+.ft-26{font-size:26px;}
+.ft-24{font-size:24px;}
+.ft-22{font-size:22px;}
+.ft-20{font-size:20px;}
+.ft-18{font-size:18px;}
+.ft-16{font-size:16px;}
+.ft-14{font-size:14px;}
+.ft-13{font-size:13px;}
+
+
+/**************************Font-weight************************************/
+
+.fw-bold{font-weight:bold;}
+.fw-800{font-weight:800;}/**extra-bold**/
+.fw-700{font-weight:700;}/**bold**/
+.fw-600{font-weight:600;}/**semi-bold**/
+.fw-500{font-weight:500;}/**medium**/
+.fw-400{font-weight:400;}/**regular**/
+.fw-300{font-weight:300;}/**light**/
+.fw-200{font-weight:200;}/**light**/
+.fw-100{font-weight:100;}/**thin**/
+
+/**************************Font-weight************************************/
+
+.warning-btn .refresh {
+    margin: 0 auto 0;
+    background: #3E3E3E;
+    border: none;
+    width: 30%;
+    border-radius: inherit;
+    padding: 12px 0;
+    font-size: 20px;
+}
+.warning-btn .location {
+    margin: 20px auto 0;
+    background: #3E3E3E;
+    border: none;
+    width: 30%;
+    border-radius: inherit;
+    padding: 12px 0;
+    font-size: 20px;
+}
+.map-outer .select {
+    -webkit-appearance: none;
+    border: 1px solid #707070;
+    width: 90%;
+    height: 40px;
+    color: #fff;
+    text-align: center;
+    font-size: 22px;
+    padding: 0 50px;
+    background:#707070 url(img/polygon-1.png);
+    background-repeat: no-repeat;
+    background-position: right 8px;
+}
+.confirm-location {
+    border: 1px solid #707070;
+    margin: 4rem 0;
+    background: #3E3E3E;
+}
+.confirm-location h3 {
+    border-bottom: 1px solid #707070;
+    padding: 10px 0 18px;
+    margin: 0;
+}
+.confirm-location span {
+    width: 50%;
+    display: inline-block;
+    border-right: 1px solid #757575;
+    padding: 10px 0;
+    color: #fff;
+    font-size: 22px;
+}
+.confirm-location span:last-child {
+	border:none;
+}
+.speed-outer span {
+    padding-bottom: 30px;
+}
+.bg-gray {
+	background: #3E3E3E;
+	border: 1px solid #757575;
+}
+.location-outer .burw {
+    background: #3E3E3E;
+    border: 2px solid #707070;
+    padding: 4px 0 7px;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 30px;
+    font-size: 26px;
+    line-height: 33px;
+}
+.date-outer input[type="date"] {
+    background: #3E3E3E;
+    border: 1px solid #707070;
+    padding: 2px 20px 7px;
+    width: 50%;
+    margin: 0;
+    border-radius: 30px;
+    font-size: 26px;
+    color: #fff;
+    text-align: center;
+}
+.date-outer .trends {
+    background: #3E3E3E;
+    border: 1px solid #707070;
+    padding: 2px 20px 7px;
+    width: 50%;
+    margin: 0;
+    border-radius: 30px;
+    font-size: 26px;
+    color: #fff;
+    text-align: center;
+}
+.date-time1 .select {
+    background: #3E3E3E;
+    border: 1px solid #707070;
+    padding: 5px 0;
+    width: 24%;
+    margin: 15px 8px;
+    border-radius: 15px;
+    font-size: 26px;
+    color: #fff;
+    text-align: center;
+}
+.date-time1 .am {
+    background: #3E3E3E;
+    border: 1px solid #707070;
+    padding: 5px 0;
+    width: 24%;
+    margin: 15px 8px;
+    border-radius: 15px;
+    font-size: 26px;
+    color: #fff;
+    text-align: center;
+}
+.date-time1 {
+    margin: 0 auto;
+    width: 60%;
+}
+input[type=date]::-webkit-inner-spin-button, 
+input[type=date]::-webkit-calendar-picker-indicator { 
+  -webkit-appearance: none; 
+  margin: 0; 
+  appearance:none;
+  -moz-appearance:none;
+  display: none;
+}
+.table-bordered td, .table-bordered th {
+    border: 8px solid #707070;
+    font-size: 26px;
+    color: #fff;
+    font-weight: 400;
+	padding: 10px 0;
+	background: #3e3e3e;
+}
+.table-bordered {
+    border: 8px solid #707070;
+}
+.table-bordered td, .table-bordered td {
+    border: 8px solid #707070;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 300;
+	padding: 10px 0;
+}
+
+@media(max-width:1024px) {
+	.ft-140{font-size:100px;}
+}
+
+@media(max-width:767px) {
+	.ft-140{font-size:60px;}
+}
+
+
+@media(max-width:568px) {
+	.ft-140{font-size:40px;}
+}
