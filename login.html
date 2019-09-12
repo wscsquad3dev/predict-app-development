@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <title>LOGIN PAGE</title>
+</head>
+
+<body>
+
+    <table width=100% height=100%>
+        <tr>
+            <!--PredictApp Logo-->
+            <td class="one" rowspan=3 width=9% height=100%>
+                <img class="img-button" src="img/logo.png" />
+                <span class="text-white d-block ft-20">Predict App</span>
+            </td>
+        </tr>
+    </table>
+
+    <!--FORM BOX-->
+    <div class="login-box">
+        <!--LOGIN FORM-->
+        <form onsubmit='return validate()' action='map.html' class="login-form">
+            Username: <input type="text" id="username">
+            <br> <br> Password: <input type="password" id="password">
+            <br> <br>
+            <input type="submit">
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
