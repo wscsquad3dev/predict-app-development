@@ -8,75 +8,154 @@
     <title>WeatherPredict</title>
 
     <!-- Leaflet JS mapping requirements -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-   crossorigin=""/>
-   <!-- Make sure you put this AFTER Leaflet's CSS -->
-  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-  crossorigin=""></script>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <style>
+      #map{height: 95vh }
+    </style>
 
   </head>
     <body>
       <div class="h100vh d-flex align-self-center ">
         <div class="container text-center">
             <div class="row">
-              <div class="col-md-8" id="mapid">
+              <div class="col-md-8" id="map">
                 <!-- Map Code Below using Leaflet.JS-->
-                <script>
-                var mymap = L.map('mapid').setView([-37.85, 145.114], 13);
+              <script>
+                // initialize the map
+                var map = L.map('map').setView([-25.274399, 133.775131], 5);
 
-                L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                  attribution:'&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-                  maxZoom: 18,
-                  id: 'mapbox.streets'
-                }).addTo(mymap);
-                </script>
+                // load a tile layer
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                  {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                    maxZoom: 10,
+                    minZoom: 5
+                  }).addTo(map);
+
+                  L.marker([-12.42, 130.89]).addTo(map)
+                  .bindPopup('Darwin.<br> Station: 14015.')
+                  
+                  L.marker([-14.47, 132.28]).addTo(map)
+                  .bindPopup('Katherine.<br> Station: 14932.')
+
+                  L.marker([-16.68, 133.41]).addTo(map)
+                  .bindPopup('Dunmarra.<br> Station: 14626.')
+
+                  L.marker([-19.65, 134.19]).addTo(map)
+                  .bindPopup('Tennant Creek.<br> Station: 15135.')
+
+                  L.marker([-21.52, 133.88]).addTo(map)
+                  .bindPopup('Barrow Creek.<br> Station: 15502.')
+
+                  L.marker([-23.70, 133.88]).addTo(map)
+                  .bindPopup('Alice Springs.<br> Station: 15590.')
+
+                  L.marker([-25.84, 133.30]).addTo(map)
+                  .bindPopup('Kulgera.<br> Station: 15603.')
+
+                  L.marker([-29.01, 134.75]).addTo(map)
+                  .bindPopup('Coober Pedy.<br> Station: 16090.')
+
+                  L.marker([-30.96, 135.73]).addTo(map)
+                  .bindPopup('Glendambo.<br> Station: 16001.')
+
+                  L.marker([-32.50, 137.71]).addTo(map)
+                  .bindPopup('Port Augusta.<br> Station: 18201.')
+
+                  L.marker([-34.92, 138.58]).addTo(map)
+                  .bindPopup('Adelaide.<br> Station: 23000.')
+              </script>
               </div>
-
               <div class="col-md-4 text-center map-outer">
                   <img class="img-fluid d-block m-auto" src="img/location.png" />
-                  <span class="text-white ft-22">Your Current Location is</span>
-                  <div class="text-center"><img class="m-auto" src="img/dotted.png"></div>
-                  <p class="ft-22 text-white mt-5"> 
+                  <span class="text-white ft-22">Current Location: </span>
+                  <span id="result"></span>
+
+                  <script>
+                  function listboxresult()
+                  {
+                    
+                    var spanresult=document.getElementById("result");
+                    spanresult.value="";
+                    var x=document.getElementById("sel");
+                    for(var i=0; i<x.options.length;i++)
+                    {
+                      if(x.options[i].selected === true)
+                      {
+                        spanresult.value +=x.options[i].value + " ";
+                        document.getElementById("result").innerHTML=spanresult.value;
+                        document.getElementById("result").style.color="white";
+                        document.getElementById("result").style.fontSize="x-large"
+                       }
+                    }
+                    if(document.getElementById("result").value == "")
+                    {
+                      document.getElementById("result").innerHTML="please";
+                      document.getElementById("result").style.color="Red";
+                    }
+                  }
+                  </script>
+            <div "select" </div>
+
+                  <p class="ft-22 text-white mt-5">
                     <span class="d-block">NT, Australia</span>
-                      Station No XXXXXX
+                    <span class="text-white ft-22"> Station No XXXXX </span>
                   </p>
-                  <select class="select">
-                    <option>- Choose Location -</option>
-                    <option>Location1</option>
-                    <option>Location2</option>
-                    <option>Location3</option> 
+                  
+                  <h4 class="ft-22 fw-500 text-left text-white pt-3 pl-5">Select your location from list: </h4>
+                  <select id="sel" >
+                    <option value=>Choose your location</option>
+                    <option value="Darwin">
+                      Darwin</option>
+                    <option value="Katherine">
+                      Katherine</option>
+                    <option value="Daly Waters">
+                      Daly Waters</option>
+                    <option value="Tennant Creek">
+                      Tennant Creek</option>
+                    <option value="Barrow Creek">
+                      Barrow Creek</option>
+                    <option value="Alice Springs">
+                      Alice Springs</option>
+                    <option value="Kulgera">
+                      Kulgera</option>
+                    <option value="Cooper Pedy">
+                      Cooper Pedy</option>
+                    <option value="Port Augusta">
+                      Port Augusta</option>
+                    <option value="Adelaide">
+                      Adelaide</option>
                   </select>
 
-                  <div class="confirm-location">
-                    <h4 class="ft-22 fw-400 text-left text-white pt-3 pl-3">Confirm your Location </h4>
-                    <h3 class="ft-24 fw-600 text-white">Is this your Location?</h3>
-                    <span>No</span><span>Yes</span>
+                  <div>
+                    <input class=""type="button" id="but1" value="Submit" onclick="listboxresult();"/>
                   </div>
-
 
               </div>
 
               <div class="col-md-12 text-center">
-                <h1 class="text-danger ft-50 fw-400 pt-4">*** instructions ***</h1>
-                <p class="text-white ft-26">Please choose the location on the drop list above, or click directly on the<br> Pinpoint that have been provided above</p>
+                <h1 class="text-danger ft-50 fw-400 pt-4"></h1>
+                 
+                  <style> 
+                      #cell1 {
+                        box-sizing: content-box;  
+                        width: 300px;
+                        height: 180px;
+                        padding: 30px;  
+                        border: 7px solid white;;
+                      }
+                     </style>
+                     <div id="cell1"> <p class="text-white  ft-26"> Please choose the location on the drop list above, or click directly on the  Pinpoint that have been provided above </textarea> </div>                  
+                </p>
               </div>
-
-
             </div>
         </div>
       </div>
-      
-
-
 
       <script src="js/jquery-3.2.1.slim.min.js"></script>
       <script src="js/popper.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
 
-      <style>
-      #mapid { height: 100vh; }
-      </style>
     </body>
 </html>
