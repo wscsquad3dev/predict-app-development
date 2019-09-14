@@ -1,16 +1,12 @@
 function validate() {
     var un = document.getElementById("username").value;
-    if (un == "") {
-        alert("Username can not be empty.");
-        return false;
-    }
-
     var password = document.getElementById("password").value;
-    if (password == "") {
-        alert("Password cannot be empty");
-        return false
-    } else if (password.length < 8) {
-        alert("The password must be more than 8 character");
+
+    if (un == "" || password == "") {
+        alert("This field cannot be empty!");
+        return false;
+    } else if (un != "adminWSC" && password != "Squad3Dev") {
+        alert("User cannot be found. Please try again or check your credentials again.");
         return false;
     }
     return true;

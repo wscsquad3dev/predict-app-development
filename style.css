@@ -10,6 +10,10 @@ body {
     background: #000;
 }
 
+#backgroundColor {
+    background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+}
+
 
 /************ font-size****************/
 
