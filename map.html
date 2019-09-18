@@ -13,12 +13,22 @@
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <style>
         #map {
-            height: 95vh
+            height: 95vh;
+            position: relative;
+        }
+
+        #map::before {
+            content: "Map is loading...";
+            position: absolute;
+            font-size: 3em;
+            top: 0; bottom: 0;
+            left: 0; right: 0;
         }
     </style>
 
     <script>
-    var stationList = [
+        //List to use for creating points on map and dropdown dynamically
+    const stationList = [
         {name:'Darwin', id:'14015', lat:'-12.42', lon:'130.89'},
         {name:'Katherine', id:'14932', lat:'-14.47', lon:'312.28'},
         {name:'Dunmarra', id:'14626', lat:'-16.68', lon:'133.41'},
@@ -53,10 +63,12 @@
                             minZoom: 5
                           }).addTo(map);
         
+                        // Creating map points dynamically from list
                         i = 0
                         while (i<stationList.length){
+                            var n = stationList[i].id;
                           L.marker([(stationList[i].lat), (stationList[i].lon)]).addTo(map)
-                          .bindPopup((stationList[i].name) + '<br> Station:'+ (stationList[i].id))
+                          .bindPopup((stationList[i].name) + '<br> Station:'+ (stationList[i].id) + `<br> <button type="button" onclick="myFunction(${n})">Select this Location</button>`)
                           i++
                         }
                           
@@ -67,9 +79,6 @@
                     <img class="img-fluid d-block m-auto" src="img/location.png" />
                     <span class="text-white ft-22">Current Location: </span>
                     <span id="result"></span>
-                    <script>
-                        document.getElementById("selector").innerHTML = "Darwin";
-                    </script>
 
                     <script>
                         function listboxresult() {
@@ -89,6 +98,14 @@
                                 document.getElementById("result").innerHTML = "please";
                                 document.getElementById("result").style.color = "Red";
                             }
+                        }
+                        function myFunction(id) {
+                            const getStation = stationList.find(station => station.id == id).name;
+                            console.log(getStation);
+                            console.log(id);
+                            document.getElementById("result").innerHTML = getStation;
+                            document.getElementById("result").style.color = "white";
+                            document.getElementById("result").style.fontSize = "x-large"
                         }
                     </script>
                    
@@ -111,15 +128,16 @@
                     </div>
 
                     <script>
+                        //Code that creates the dropdown dynamically from list
                             var x = document.getElementById("sel");
                             i = 0
                             while (i<stationList.length){
                                 var option = document.createElement("option");
                                 option.text = (stationList[i].name);
-                                x.add(option, x[i]);
+                                x.add(option, x[i+1]);
                               i++
                              }
-                          </script>
+                    </script>
 
                     <div class="col-md-12 text-center">
                         <h1 class="text-danger ft-50 fw-400 pt-4"></h1>
