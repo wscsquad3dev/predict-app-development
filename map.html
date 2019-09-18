@@ -29,17 +29,17 @@
     <script>
         //List to use for creating points on map and dropdown dynamically
     const stationList = [
-        {name:'Darwin', id:'14015', lat:'-12.42', lon:'130.89'},
-        {name:'Katherine', id:'14932', lat:'-14.47', lon:'312.28'},
-        {name:'Dunmarra', id:'14626', lat:'-16.68', lon:'133.41'},
-        {name:'Tennant Creek', id:'14626', lat:'-19.65', lon:'134.19'},
-        {name:'Barrow Creek', id:'15502', lat:'-21.52', lon:'133.88'},
-        {name:'Alice Springs', id:'15590', lat:'-23.70', lon:'133.88'},
-        {name:'Kulgera', id:'15603', lat:'-25.84', lon:'133.30'},
-        {name:'Coober Pedy', id:'16090', lat:'-29.01', lon:'134.75'},
-        {name:'Glendambo', id:'16001', lat:'-30.96', lon:'135.73'},
-        {name:'Port Augusta', id:'18201', lat:'-32.50', lon:'137.71'},
-        {name:'Adelaide', id:'23000', lat:'-34.92', lon:'138.58'}
+        {name:'Darwin', id:'14015', lat:'-12.42', lon:'130.89', state:'NT'},
+        {name:'Katherine', id:'14932', lat:'-14.47', lon:'312.28', state:'NT'},
+        {name:'Dunmarra', id:'14626', lat:'-16.68', lon:'133.41', state:'NT'},
+        {name:'Tennant Creek', id:'14626', lat:'-19.65', lon:'134.19', state:'NT'},
+        {name:'Barrow Creek', id:'15502', lat:'-21.52', lon:'133.88', state:'NT'},
+        {name:'Alice Springs', id:'15590', lat:'-23.70', lon:'133.88', state:'NT'},
+        {name:'Kulgera', id:'15603', lat:'-25.84', lon:'133.30', state:'NT'},
+        {name:'Coober Pedy', id:'16090', lat:'-29.01', lon:'134.75', state:'SA'},
+        {name:'Glendambo', id:'16001', lat:'-30.96', lon:'135.73', state:'SA'},
+        {name:'Port Augusta', id:'18201', lat:'-32.50', lon:'137.71', state:'SA'},
+        {name:'Adelaide', id:'23000', lat:'-34.92', lon:'138.58', state:'SA'}
     ]
     </script>
 
@@ -92,6 +92,7 @@
                                     document.getElementById("result").innerHTML = spanresult.value;
                                     document.getElementById("result").style.color = "white";
                                     document.getElementById("result").style.fontSize = "x-large"
+                                    //BHUPINDER can you please add in the "state" and "stationNo" editing                                  
                                 }
                             }
                             if (document.getElementById("result").value == "") {
@@ -101,19 +102,26 @@
                         }
                         function myFunction(id) {
                             const getStation = stationList.find(station => station.id == id).name;
-                            console.log(getStation);
-                            console.log(id);
                             document.getElementById("result").innerHTML = getStation;
                             document.getElementById("result").style.color = "white";
                             document.getElementById("result").style.fontSize = "x-large"
+
+                            const getState = stationList.find(Sstate => Sstate.id == id).state;
+                            document.getElementById("state").innerHTML = getState+", Australia";
+                            document.getElementById("state").style.color = "white";
+                            document.getElementById("state").style.fontSize = "x-large"
+
+                            document.getElementById("stationNo").innerHTML = "Station No: " + id;
+                            document.getElementById("stationNo").style.color = "white";
+                            document.getElementById("stationNo").style.fontSize = "x-large"
                         }
                     </script>
                    
                     <div "select" </div>
 
                         <p class="ft-22 text-white mt-5">
-                            <span class="d-block">NT, Australia</span>
-                            <span class="text-white ft-22"> Station No XXXXX </span>
+                            <span id="state" class="d-block">State:</span>
+                            <span id="stationNo" class="text-white ft-22"> Station No:</span>
                         </p>
 
                         <h4 class="ft-22 fw-500 text-left text-white pt-3 pl-5">Select your location from list: </h4>
