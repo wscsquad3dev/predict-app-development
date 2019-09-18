@@ -410,3 +410,12 @@ td {
 .alignright {
     float: right;
 }
+
+#cell1 {
+    box-sizing: content-box;
+    width: 300px;
+    height: 180px;
+    padding: 30px;
+    border: 7px solid white;
+    ;
+}

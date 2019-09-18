@@ -1,0 +1,15 @@
+#map {
+    height: 95vh;
+    position: relative;
+    margin-top: 2vh;
+}
+
+#map::before {
+    content: "Map is loading...";
+    position: absolute;
+    font-size: 3em;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
