@@ -5,7 +5,7 @@ function validate() {
     if (un == "" || password == "") {
         alert("This field cannot be empty!");
         return false;
-    } else if (un != "adminWSC" && password != "Squad3Dev") {
+    } else if (un != "adminWSC" || password != "Squad3Dev") {
         alert("User cannot be found. Please try again or check your credentials again.");
         return false;
     }
