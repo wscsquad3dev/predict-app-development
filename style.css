@@ -215,10 +215,36 @@ body {
     border: 1px solid #757575;
 }
 
+.img-location-mark {
+    height: 100px;
+    width: auto;
+}
+
+.location-header.fixed {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    padding: 50px 0 20px 0;
+    width: 100%;
+    background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.location-header .header-title {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.location-select-date {
+    margin-top: 160px;
+}
+
 .location-outer .burw {
     background: #3E3E3E;
     border: 2px solid #707070;
-    padding: 4px 0 7px;
+    padding: 10px;
     width: 80%;
     margin: 0 auto;
     border-radius: 30px;
@@ -249,26 +275,31 @@ body {
     color: #fff;
     text-align: center;
 }
-
+.img-calendar{
+    width: 50px;
+    height: 60px;
+    margin: 2px 8px;
+}
 .date-time1 .select {
     background: #3E3E3E;
     border: 1px solid #707070;
-    padding: 5px 0;
-    width: 24%;
-    margin: 15px 8px;
-    border-radius: 15px;
+    padding: 10px 10px;
+/*    width: 24%;*/
+    margin: 3px 8px;
+    border-radius: 10px;
     font-size: 26px;
     color: #fff;
     text-align: center;
+    min-width: 80px;
 }
 
 .date-time1 .am {
     background: #3E3E3E;
     border: 1px solid #707070;
-    padding: 5px 0;
-    width: 24%;
-    margin: 15px 8px;
-    border-radius: 15px;
+    padding: 10px 5px;
+    /*width: 24%;*/
+    margin: 3px 8px;
+    border-radius: 10px;
     font-size: 26px;
     color: #fff;
     text-align: center;
@@ -276,7 +307,6 @@ body {
 
 .date-time1 {
     margin: 0 auto;
-    width: 60%;
 }
 
 input[type=date]::-webkit-inner-spin-button,
@@ -304,12 +334,17 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .table-bordered td,
 .table-bordered td {
-    border: 8px solid #707070;
-    font-size: 20px;
+    border: 6px solid #707070;
+    font-size: 24px;
     color: #fff;
     font-weight: 300;
     padding: 10px 0;
 }
+/* 
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+} */
 
 @media(max-width:1024px) {
     .ft-140 {
@@ -411,11 +446,66 @@ td {
     float: right;
 }
 
-#cell1 {
-    box-sizing: content-box;
-    width: 300px;
-    height: 180px;
-    padding: 30px;
-    border: 7px solid white;
-    ;
+
+
+.carousel {
+    background:#F5F5F5;
+}
+
+.carousel-item .img-fluid {
+    width:90%;
+    /* height: 100%; */
+    height: 550px;
+}
+
+.carousel-item a {
+    display: block;
+    width:90%;
+    height: 90%;
+}
+
+.carousel-control-prev {
+    color:#036 !important;
+    margin-left: 3px;
+    width: 5%; 
+    z-index: 10;
+}
+
+.carousel-control-next {
+    color:#036 !important;
+    margin-right: 3px;
+    width: 5%; 
+    z-index: 10;
+}
+
+.carousel-controls a:hover {
+    color: #004289;
+    z-index: 10;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    color:red; 
+    width: 5%; 
+}
+
+#loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(30, 30, 30, 0);
+    background-image: url("img/loader.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.hide-loading {
+    display: none;
+}
+
+#carouselGraphs {
+    margin-top: 60px;
+    margin-bottom: 60px;
 }

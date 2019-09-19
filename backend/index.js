@@ -7,6 +7,7 @@ var base = new Airtable({apiKey: 'keyirrK4bb7Y1D2yp'}).base('appsNzWVTXkqOLhbL')
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('src'));
 
 app.use(function(req, res, next) {
 
@@ -35,9 +36,12 @@ app.post('/get-location', function(req, res) {
     var yyyy = post.sel_year;
     var mm = post.sel_month;
     var dd = post.sel_day;
+    var station = post.station;
+    var stcode = post.st_code;
     console.log(yyyy + ":" + mm + ":" + dd);
-    var table_name = 'alicesprings15590_allweather_' + yyyy;
-
+    var table_name = station + '' + stcode + '_allweather_' + yyyy;
+    console.log('table : ' + table_name);
+    
     base(table_name).select({
         
         view: "Grid view",
@@ -62,3 +66,6 @@ app.listen(3000, function () {
 	console.log('Prediction Server is running on port: 3000');
 });
 
+app.post("get-sprint-graph", function(req, res) {
+    res.json({ status: false });
+});
