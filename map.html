@@ -30,7 +30,7 @@
         //List to use for creating points on map and dropdown dynamically
     const stationList = [
         {name:'Darwin', id:'14015', lat:'-12.42', lon:'130.89', state:'NT'},
-        {name:'Katherine', id:'14932', lat:'-14.47', lon:'312.28', state:'NT'},
+        {name:'Katherine', id:'14932', lat:'-14.47', lon:'132.28', state:'NT'},
         {name:'Dunmarra', id:'14626', lat:'-16.68', lon:'133.41', state:'NT'},
         {name:'Tennant Creek', id:'14626', lat:'-19.65', lon:'134.19', state:'NT'},
         {name:'Barrow Creek', id:'15502', lat:'-21.52', lon:'133.88', state:'NT'},
@@ -40,7 +40,7 @@
         {name:'Glendambo', id:'16001', lat:'-30.96', lon:'135.73', state:'SA'},
         {name:'Port Augusta', id:'18201', lat:'-32.50', lon:'137.71', state:'SA'},
         {name:'Adelaide', id:'23000', lat:'-34.92', lon:'138.58', state:'SA'}
-    ]
+    ];
     </script>
 
 </head>
@@ -83,23 +83,29 @@
                     <script>
                         function listboxresult() {
 
-                            var spanresult = document.getElementById("result");
-                            spanresult.value = "";
-                            var x = document.getElementById("sel");
-                            for (var i = 0; i < x.options.length; i++) {
-                                if (x.options[i].selected === true) {
-                                    spanresult.value += x.options[i].value + " ";
-                                    document.getElementById("result").innerHTML = spanresult.value;
-                                    document.getElementById("result").style.color = "white";
-                                    document.getElementById("result").style.fontSize = "x-large"
-                                    //BHUPINDER can you please add in the "state" and "stationNo" editing                                  
-                                }
+                            var stationresult = document.getElementById("sel").value;
+                                 console.log(stationresult)
+
+                                 document.getElementById("result").innerHTML = stationresult;
+                                 document.getElementById("result").style.color = "white";
+                                 document.getElementById("result").style.fontSize = "x-large"
+                                    //BHUPINDER can you please add in the "state" and "stationNo" editing  
+
+                                    document.getElementById("state").innerHTML = "Get this from List";  
+                                    document.getElementById("state").style.color = "white";
+                                    document.getElementById("state").style.fontSize = "x-large"       
+
+                                    document.getElementById("stationNo").innerHTML = "Get this from List";  
+                                    document.getElementById("stationNo").style.color = "white";
+                                    document.getElementById("stationNo").style.fontSize = "x-large"                         
+                                
                             }
                             if (document.getElementById("result").value == "") {
                                 document.getElementById("result").innerHTML = "please";
                                 document.getElementById("result").style.color = "Red";
                             }
-                        }
+                        
+                      
                         function myFunction(id) {
                             const getStation = stationList.find(station => station.id == id).name;
                             document.getElementById("result").innerHTML = getStation;
@@ -115,6 +121,7 @@
                             document.getElementById("stationNo").style.color = "white";
                             document.getElementById("stationNo").style.fontSize = "x-large"
                         }
+
                     </script>
                    
                     <div "select" </div>
@@ -130,7 +137,7 @@
                         </select>
 
                         <div>
-                            <input class="" type="button" id="but1" value="Submit" onclick="listboxresult();" />
+                            <input class="" type="button" id="but1" value="Submit" onclick="listboxresult();"/>
                         </div>
 
                     </div>
@@ -140,11 +147,35 @@
                             var x = document.getElementById("sel");
                             i = 0
                             while (i<stationList.length){
-                                var option = document.createElement("option");
+                                var option = document.createElement(id="option");
                                 option.text = (stationList[i].name);
                                 x.add(option, x[i+1]);
                               i++
                              }
+
+                             $(document).ready(function() {
+                            window.listboxresult = function() {
+                                if ($("#sel option:selected").val() == "") {
+                                    alert("Please, select your location.");
+                                    return;
+                                }
+                                sessionStorage.setItem("stname", $("#sel option:selected").text());
+                                sessionStorage.setItem("stcode", $("#sel option:selected").val());
+                                window.location.href = SERVER_PATH + "location.html";
+                                }
+                            });
+
+                            $(document).ready(function() {
+                            window.myFunction = function() {
+                                if ($("#sel option:selected").val() == "") {
+                                    alert("Please, select your location.");
+                                    return;
+                                }
+                                sessionStorage.setItem("stname", $("#sel option:selected").text());
+                                sessionStorage.setItem("stcode", $("#sel option:selected").val());
+                                window.location.href = SERVER_PATH + "location.html";
+                                }
+                            });
                     </script>
 
                     <div class="col-md-12 text-center">
