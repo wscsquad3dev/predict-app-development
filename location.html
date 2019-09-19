@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-5.8.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>WeatherPredict</title>
+</head>
+
+<body id="backgroundColor">
+    <div id="loading" class="hide-loading"></div>
+    <div class="h100vh d-flex align-self-center speed">
+        <div class="container text-center">
+            <div class="location-header fixed">
+                <div class="row container header-title">
+                    <div class="col-md-3">
+                        <img class="img-location-mark" src="img/location.png" />
+                        <span class="text-white d-block ft-20">Location</span>
+
+                        <!-- <img class="img-fluid mt-5" src="img/speednew.png" />
+                        <span class="text-white d-block ft-20">Speed</span> -->
+
+                    </div>
+
+                    <div class="col-md-9">
+                        <div class="location-outer">
+                            <h2 class="text-white mb-4">LOCATION</h2>
+                            <button class="btn btn-primary burw d-block" id="station-name"></button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row location-select-date">
+                <div class="col-md-8 offset-md-2">
+                    <div class="d-flex date-outer mt-5">
+                        <div class="d-flex date-time1 justify-content-center my-3">
+                            <select class="select">
+                                <option>2014</option>
+                                <option>2015</option>
+                                <option>2016</option>
+                                <option>2017</option> 
+                                <option>2018</option> 
+                            </select>
+                            <select class="select">
+                                <option>10</option>
+                            </select>
+
+                            <select class="select">
+                                <option>01</option>
+                                <option>02</option>
+                                <option>03</option>
+                                <option>04</option>
+                                <option>05</option>
+                                <option>06</option>
+                                <option>07</option>
+                                <option>08</option>
+                                <option>09</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option>24</option>
+                                <option>25</option>
+                                <option>26</option>
+                                <option>27</option>
+                                <option>28</option>
+                                <option>29</option>
+                                <option>30</option>
+                                <option>31</option> 
+                            </select>
+                            <img class="img-calendar" src="img/calendar.png" />
+                            <select class="select">
+                                <option>08</option>
+                                <option>09</option>
+                                <option>10</option>
+                                <option>11</option> 
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                            </select>
+                            <select class="select">
+                                <option>00</option>
+                                <option>01</option>
+                                <option>02</option>
+                                <option>03</option>
+                                <option>04</option>
+                                <option>05</option>
+                                <option>06</option>
+                                <option>07</option>
+                                <option>08</option>
+                                <option>09</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option>24</option>
+                                <option>25</option>
+                                <option>26</option>
+                                <option>27</option>
+                                <option>28</option>
+                                <option>29</option>
+                                <option>30</option>
+                                <option>31</option>
+                                <option>32</option>
+                                <option>33</option>
+                                <option>34</option>
+                                <option>35</option>
+                                <option>36</option>
+                                <option>37</option>
+                                <option>38</option>
+                                <option>39</option>
+                                <option>40</option>
+                                <option>41</option>
+                                <option>42</option>
+                                <option>43</option>
+                                <option>44</option>
+                                <option>45</option>
+                                <option>46</option>
+                                <option>47</option>
+                                <option>48</option>
+                                <option>49</option>
+                                <option>50</option>
+                                <option>51</option>
+                                <option>52</option>
+                                <option>53</option>
+                                <option>54</option>
+                                <option>55</option>
+                                <option>56</option>
+                                <option>57</option>
+                                <option>58</option>
+                                <option>59</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="d-flex date-outer mt-3 mb-3">
+                        <button class="btn btn-primary trends d-block date-time1">Show Trends</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <table class="table table-bordered table-sm">
+                        <thead>
+                            <tr>
+                                <th>Status</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Maximum Temperature</td>
+                                <td id="max_temp"></td>
+                            </tr>
+                            <tr>
+                                <td>Minimum Temperature</td>
+                                <td id="min_temp"></td>
+                            </tr>
+                            <tr>
+                                <td>Average Temperature</td>
+                                <td id="avg_temp"></td>
+                            </tr>
+                            <tr>
+                                <td>Wind Direction (6AM)</td>
+                                <td id="wind_dir_am"></td>
+                            </tr>
+                            <tr>
+                                <td>Wind Direction (6PM)</td>
+                                <td id="wind_dir_pm"></td>
+                            </tr>
+                            <tr>
+                                <td>Wind Speed (6AM)</td>
+                                <td id="wind_speed_am"></td>
+                            </tr>
+                            <tr>
+                                <td>Wind Speed (6PM)</td>
+                                <td id="wind_speed_pm"></td>
+                            </tr>
+                            <tr>
+                                <td>Chance of Rain</td>
+                                <td id="rain_mm"></td>
+                            </tr>
+                            <tr>
+                                <td>Sun Intensity</td>
+                                <td id="sun_int"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="carouselGraphs" class="carousel slide align-items-center" data-ride="carousel"> 
+                <div id="location-graph" class="carousel-inner" role="listbox">
+                </div>
+                <a class="carousel-control-prev" href="#carouselGraphs" role="button" data-slide="prev">
+                    <i class="fas fa-chevron-circle-left fa-2x"></i>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next text-faded" href="#carouselGraphs" role="button" data-slide="next">
+                    <i class="fas fa-chevron-circle-right fa-2x"></i>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/service.js"></script>
+    <script>
+        var getLocation = function() {
+
+            $(".trends").click(function() {
+                $("#loading").removeClass("hide-loading");
+                $("#max_temp").text("");
+                $("#min_temp").text("");
+                $("#avg_temp").text("");
+                $("#wind_dir_am").text("");
+                $("#wind_dir_pm").text("");
+                $("#wind_speed_am").text("");
+                $("#wind_speed_pm").text("");
+                $("#sun_int").text("");
+                $("#rain_mm").text("");
+                var sel_data = {
+                    sel_year: $("select")[0].value,
+                    sel_month: $("select")[1].value,
+                    sel_day: $("select")[2].value,
+                    station: sessionStorage.getItem("stname").replace(/\s/g, "").toLocaleLowerCase(),
+                    st_code: sessionStorage.getItem("stcode").toLocaleLowerCase(),
+                }
+                service.post("get-location", sel_data, function(data) {
+                    $("#loading").addClass("hide-loading");
+                        if (!data.status) {
+                            alert("Airtable connection error.");
+                            return;
+                        }
+                        $("#max_temp").text(data.data.Max_Temp);
+                        $("#min_temp").text(data.data.Min_Temp);
+                        $("#avg_temp").text(data.data.Avg_Temp);
+                        $("#wind_dir_am").text(data.data["6am_Wind_Dir"]);
+                        $("#wind_dir_pm").text(data.data["6pm_Wind_Dir"]);
+                        $("#wind_speed_am").text(data.data["6am_Wind_Speed"]);
+                        $("#wind_speed_pm").text(data.data["6pm_Wind_Speed"]);
+                        $("#sun_int").text(data.data["Solar_MJm2"]);
+                        $("#rain_mm").text(data.data["Rain_mm"]);
+                        makeGraph();
+                }, function (errMsg) {
+                    $("#loading").addClass("hide-loading");
+                        alert(errMsg);
+                });
+            });
+
+            $(".img-location-mark").click(function() {
+                window.location.href = SERVER_PATH + "map.html";
+            });
+        }
+
+        var initLocation = function() {
+            var stationName = sessionStorage.getItem("stname");
+            var stationCode = sessionStorage.getItem("stcode")
+            if (!stationName) {
+                stationName = "Adelaide";
+            }
+            if (!stationCode) {
+                stationCode = "23000";
+            }
+
+            $("#station-name").text(stationName);
+            window.stationName = stationName;
+            window.stationCode = stationCode;
+            makeGraph();
+        }
+
+        var makeGraph = function() {
+            var selYear = $("select")[0].value;
+            var selSprint = "Sprint1";
+            var graphYear = "2017-18";
+            var imgType = "png";
+            if (+selYear < 2017) {
+                selSprint = "Sprint2";
+                graphYear = "2014-2016";
+                imgType = "jpg";
+            }
+            stationName = window.stationName.replace(/\s/g, "");
+            stationCode = window.stationCode;
+            graphContents = ["MaxTemperature", "MinTemperature", "AvgTemperature", "Rainfall", "SolarIntensity"];
+            var graphImages = "";
+            graphContents.forEach(function(item, index) {
+                var isActive = "";
+                if (index == 0) {
+                    isActive = "active";
+                }
+                graphImages += "<div class=\"carousel-item " + isActive + "\"><img class=\"d-block mx-auto img-fluid\" src=\"files/graph/"+ selSprint + "/" + item + "/"+ stationName +"_"+ stationCode +"_" + graphYear + "."+ imgType + "\" alt=\"A" + (index+1) + "\"></div>";
+            });
+            $("#location-graph").html(graphImages);
+        }
+
+        $(document).ready(function() {
+            $(".carousel").carousel();
+            initLocation();
+            getLocation();
+        });
+    </script>
+
+</body>
+
+</html>
