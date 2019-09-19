@@ -164,18 +164,6 @@
                                 window.location.href = SERVER_PATH + "location.html";
                                 }
                             });
-
-                            $(document).ready(function() {
-                            window.myFunction = function() {
-                                if ($("#sel option:selected").val() == "") {
-                                    alert("Please, select your location.");
-                                    return;
-                                }
-                                sessionStorage.setItem("stname", $("#sel option:selected").text());
-                                sessionStorage.setItem("stcode", $("#sel option:selected").val());
-                                window.location.href = SERVER_PATH + "location.html";
-                                }
-                            });
                     </script>
 
                     <div class="col-md-12 text-center">
