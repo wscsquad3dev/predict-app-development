@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -78,10 +78,10 @@
                     <span id="result"></span>
 
                     <script>
-                        function listboxresult() {
+                        function listboxresult(selected) {
 
                             var spanresult = document.getElementById("result");
-                            spanresult.value = "";
+                            spanresult.value = ""; 
                             var x = document.getElementById("sel");
                             for (var i = 0; i < x.options.length; i++) {
                                 if (x.options[i].selected === true) {
@@ -89,13 +89,14 @@
                                     document.getElementById("result").innerHTML = spanresult.value;
                                     document.getElementById("result").style.color = "white";
                                     document.getElementById("result").style.fontSize = "x-large"
-                                    //BHUPINDER can you please add in the "state" and "stationNo" editing                                  
+                                    //BHUPINDER can you please add in the "state" and "stationNo" editing    
                                 }
                             }
                             if (document.getElementById("result").value == "") {
                                 document.getElementById("result").innerHTML = "please";
                                 document.getElementById("result").style.color = "Red";
-                            }
+                            } 
+                            
                         }
                         function myFunction(id) {
                             const getStation = stationList.find(station => station.id == id).name;
@@ -122,14 +123,12 @@
                         </p>
 
                         <h4 class="ft-22 fw-500 text-left text-white pt-3 pl-5">Select your location from list: </h4>
-                        <select id="sel">
-                            <option value=>Choose your location</option> 
+                        <select id="sel" onchange="myFunction(this.value)">
+                            <option>Choose your location</option> 
                         </select>
 
-                        <div>
-                            <input class="" type="button" id="but1" value="Submit" onclick="listboxresult();" />
-                        </div>
 
+                        
                     </div>
 
                     <script>
@@ -152,9 +151,9 @@
                             #cell1 {
                                 box-sizing: content-box;
                                 width: 300px;
-                                height: 180px;
-                                padding: 30px;
-                                border: 7px solid white;
+                                height: 175px;
+                                padding: 28px;
+                                border: 6px solid white;
                                 ;
                             }
                         </style>
